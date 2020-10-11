@@ -73,6 +73,7 @@ for(let i = 0; i <= 100; i++) {
 }
 
 //Zadanie 8:
+//a)
 for(let i = 0; i < 5; i++) {
     let result = '';
 
@@ -82,7 +83,9 @@ for(let i = 0; i < 5; i++) {
     console.log(result);
 }
 
-//TODO: finish this
+//b)
+
+
 
 /*
 
@@ -90,22 +93,13 @@ for(let i = 0; i < 5; i++) {
 
 Narysuj w konsoli:
 
-a)
-```
-*
-**
-***
-****
-*****
-```
-
 b)
 ```
-    *
-   * *
+    * i % 5 == 0
+   * * / i %
   * * *
  * * * *
-* * * * *
+* * * * * // i % 2 == 1
 ```
 
 c)
