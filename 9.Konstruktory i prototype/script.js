@@ -24,16 +24,43 @@ Person.prototype.changeAge = function(newAge) {
     this.age = newAge;
 }
 
-Person.prototype.changeCIty = function(newCity) {
+Person.prototype.changeCity = function(newCity) {
     this.city = newCity;
 }
 
 
 let personOne = new Person('person', 'one', 1, 'countryOne', 'cityOne', 'languageOne');
-let personTwo = new Person('person', 'two', 1, 'countryOne', 'cityOne', 'languageOne');
-let personThree = new Person('person', 'three', 1, 'countryOne', 'cityOne', 'languageOne');
-let personFour = new Person('person', 'four', 1, 'countryFour', 'cityFour', 'languageFour');
-let personFive = new Person('person', 'five', 1, 'countryFive', 'cityOne', 'language');
+let personTwo = new Person('person', 'two', 2, 'countryTwo', 'cityTwo', 'languageTwo');
+let personThree = new Person('person', 'three', 3, 'countryThree', 'cityThree', 'languageThree');
+let personFour = new Person('person', 'four', 4, 'countryFour', 'cityFour', 'languageFour');
+let personFive = new Person('person', 'five', 5, 'countryFive', 'cityFive', 'languageFive');
+
+console.log(personOne);
+console.log(personTwo);
+console.log(personThree);
+console.log(personFour);
+console.log(personFive);
+
+personOne.changeAge(111);
+personOne.changeCity('newCityOne');
+
+personTwo.changeAge(222);
+personTwo.changeCity('newCityTwo');
+
+personThree.changeAge(333);
+personThree.changeCity('newCityThree');
+
+personFour.changeAge(444);
+personFour.changeCity('newCityFour');
+
+personFive.changeAge(555);
+personFive.changeCity('newCityFive');
+
+console.log(personOne);
+console.log(personTwo);
+console.log(personThree);
+console.log(personFour);
+console.log(personFive);
 
 // #### Zadanie 2
 
