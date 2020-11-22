@@ -66,7 +66,23 @@ console.log(personFive);
 
 // Stwórz konstruktor kalkulatora z czterema podstawowymi działaniami. Konstruktor powinien posiadać pamięć operacji oraz metody do odpowiednich działań. Dopisz również metodę wypisującą zawartość pamięci oraz czyszczącą zawartość pamięci kalkulatora. Stwóz na podstawie konstruktora minimum dwa niezależne kalkulatory.
 
+function Calc(){
+    this.memory = [];
+    this.showMemory = function(){
+        console.log(this.memory)
+    }
+    this.clearMemory = function () {
+        this.memory = []
+    }
+    this.add = function (a,b){
+        let equation = `${a} + ${b} = ${a +b}`
+        console.log(equation)
+        this.memory.push(equation)
+    }
+    //TODO: finish
+}
+
 
 // #### Zadanie 3( gra )
 
-// Stwórz konstruktor z dwoma metodami. Jedna co sekundę ma zminiać zawartość pola typu number na losową liczbę z zakresu 1-10. Druga ma sprawdzać czy liczba jest większa o 5. Jeśli tak to program ma zakończyć działanie. Obie metody muszą być wywołane na różnych obiektach i wymianiać dane przy pomocy pola prototype.
+// Stwórz konstruktor z dwoma metodami. Jedna co sekundę ma zminiać zawartość pola typu number na losową liczbę z zakresu 1-10. Druga ma sprawdzać czy liczba jest większa o 5. Jeśli tak to program ma zakończyć działanie.

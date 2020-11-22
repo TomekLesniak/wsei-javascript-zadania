@@ -171,11 +171,19 @@ function swap(numbers, indexFirst, indexSecond) {
     numbers[indexSecond] = temp;
 }
 // #### Zadanie 8
-console.log(concatenate([1,2], [3,4]));
+let exampleArrayA = [7, 6, 3, 4];
+let exampleArrayB = [5, 6, 7, 8];
 
-function concatenate(array1, array2) {
-    return array1.concat(array2);
+function sumOfArraysIndex(arrayA, arrayB){
+    let array = [];
+    arrayA.forEach((num, i) =>{
+        array.push(num + arrayB[i]);
+    });
+    return array;
 }
+
+console.log(sumOfArraysIndex(exampleArrayA, exampleArrayB));
+
 
 // #### Zadanie 9
 
@@ -183,12 +191,15 @@ console.log(getArrayWithoutElement([1,2,3], 2))
 
 function getArrayWithoutElement(array, element) {
     const newArray = [];
+    newArray.r
     for(let item of array) {
         if(item !== element)
             newArray.push(item);
     }
     return newArray;
 }
+let x = [1,2,3];
+x.
 
 // #### Zadanie 10
 
