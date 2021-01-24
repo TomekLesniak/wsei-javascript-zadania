@@ -85,55 +85,90 @@ for(let i = 0; i < 5; i++) {
 
 //b)
 
+for (let i = 1; i <= 5; i++) {
+    
+    const tab = [];
+    for (let j = i; j < 5; j++) {
+      tab.push(" ");
+    }
+    for (let k = 0; k < (2 * i - 1); k++) {
+      const val = k % 2 === 0 ? "*" : " ";
+      tab.push(val);
+    }
+  
+    const row = tab.join("")
+    console.log(row);
+}
+  
 
 
-/*
+// c)
 
-#### Zadanie 8
+for ( let i=1; i<= 5; i++ ){
+    let spaces = ' '.repeat( 5-i );
+    let stars = '*'. repeat( 2*i-1 )
+    console.log( spaces + stars );
+}
 
-Narysuj w konsoli:
 
-b)
-```
-    * i % 5 == 0
-   * * / i %
-  * * *
- * * * *
-* * * * * // i % 2 == 1
-```
+// d)
 
-c)
-```
-    *
-   ***
-  *****
- *******
-*********
-```
+for(let i=1; i<=6; i++){
+    let row = "";
+    for(let j=0; j<i; j++){
+        row += "*";
+    }
+    let num = i;
+    for(let k=6; k>i; k--){
+        row += num;
+        num ++;
+    }
+    console.log(row);
+    
+}
+console.log("------")
+for(let i=6;i>0;i--){
+   
+    let row = "";
 
-d)
-```
-*1234
-**234
-***34
-****4
-*****
------
-*****
-****4
-***34
-**234
-*1234
-```
+    for(let k=1; k<=i ; k++){
+        row += "*";
+    }
+    let number = i
+    for(let j=6; j>i ; j--){
+      row += number;
+       number++;
+    }
+    console.log(row);
+}
 
-e)
-```
-    *
-   * *
-  * * *
- * * * *
-* * * * *
-    *
-    *
-    *
-```*/
+
+
+// e
+
+for (let i = 1; i <= 5; i++) {
+    
+    const tab = [];
+    for (let j = i; j < 5; j++) {
+      tab.push(" ");
+    }
+    for (let k = 0; k < (2 * i - 1); k++) {
+      const val = k % 2 === 0 ? "*" : " ";
+      tab.push(val);
+    }
+  
+    const row = tab.join("")
+    console.log(row);
+}
+
+for ( let i=1; i<3; i++ ){
+
+    const tab = [];
+    for (let j = 0; j < 4; j++) {
+        tab.push(" ");
+    }
+
+    tab.push("*");
+    const row = tab.join("");
+    console.log(row);
+}

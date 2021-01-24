@@ -66,23 +66,71 @@ console.log(personFive);
 
 // Stwórz konstruktor kalkulatora z czterema podstawowymi działaniami. Konstruktor powinien posiadać pamięć operacji oraz metody do odpowiednich działań. Dopisz również metodę wypisującą zawartość pamięci oraz czyszczącą zawartość pamięci kalkulatora. Stwóz na podstawie konstruktora minimum dwa niezależne kalkulatory.
 
-function Calc(){
+function add(a, b) {
+    return a + b;
+  }
+  
+  function subtract(a, b) {
+    return a - b;
+  }
+  
+  function multiply(a, b) {
+    return a * b;
+  }
+  
+  function divide(a, b) {
+    if (b == 0) {
+      console.log('Cannot divide by zero!');
+      return;
+    }
+    return a / b;
+  }
+  
+  function Calculator() {
     this.memory = [];
-    this.showMemory = function(){
-        console.log(this.memory)
-    }
-    this.clearMemory = function () {
-        this.memory = []
-    }
-    this.add = function (a,b){
-        let equation = `${a} + ${b} = ${a +b}`
-        console.log(equation)
-        this.memory.push(equation)
-    }
-    //TODO: finish
-}
-
+    this.showMemory = () => console.log(this.memory);
+    this.resetMemory = () => (this.memory = []);
+    this.calculate = (a, b, operation) => {
+      this.memory.push(operation(a, b));
+      return operation(a, b);
+    };
+  }
+  
+  let c1 = new Calculator();
+  let c2 = new Calculator();
+  
+  console.log(c1.calculate(5, 10, add));
+  console.log(c1.calculate(5, 23, divide));
+  console.log(c1.memory);
+  
+  console.log(c2.calculate(5.3, 10, multiply));
+  console.log(c2.calculate(15, 23, subtract));
+  console.log(c2.memory);
+  
+  c1.showMemory();
+  c2.resetMemory();
+  console.log(c2.showMemory());
 
 // #### Zadanie 3( gra )
 
 // Stwórz konstruktor z dwoma metodami. Jedna co sekundę ma zminiać zawartość pola typu number na losową liczbę z zakresu 1-10. Druga ma sprawdzać czy liczba jest większa o 5. Jeśli tak to program ma zakończyć działanie.
+class Game {
+    value = 1;
+    constructor() {
+        this.changeValue();
+    }
+    checkValue() {
+        if(this.value > 5) return true;
+        else return false;
+    }
+
+    changeValue() {
+        let interval = setInterval(() => {
+            this.value = 1 + Math.floor((10 - 1) * Math.random());
+            console.log(this.value);
+            if(this.checkValue()) clearInterval(interval);
+        }, 1000)
+    }
+
+
+}

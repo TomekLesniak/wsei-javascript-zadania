@@ -46,9 +46,3 @@ let result = null;
 result = x > y;
 
 console.log(result);
-
-/*
-
-#### Zadanie 6
-
-W konsoli stwórz trzy zmienne. Dwie niech przechowują dowolne liczby, a jedna o nazwie ```result```, niech przechowuje ```null```. Sprawdź czy liczba pierwsza jest większa od drugiej za pomocą odpowiedniego operatora i zapisz wynik w zmiennej ```result```. Wypisz tą zmienną w konsoli.*/
