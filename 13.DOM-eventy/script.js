@@ -122,3 +122,36 @@ window.addEventListener("keydown", e => {
         input.value = eval(calculation);
     }
 })
+
+//zadanie 8
+let el = document.getElementById("myDiv");
+let obj = {
+    newClass: 'string_z_parametru'
+}
+let sting = "mynewclass";
+
+const fun1 = (obj,string) => {
+    obj['newClass'] = string;
+    console.log(obj)
+}
+ 
+fun1(obj,sting);
+
+const fun2 = (el,one) => {
+    el.classList.add(one.newClass);
+}
+
+fun2(el,obj);
+console.log()
+
+//zadanie 9
+const div = document.getElementById('numbers');
+
+const addClass = () => {
+  let params = Math.floor(Math.random() * 10);
+    
+  if(params % 2 == 0) div.className = "even";
+    else div.className = "odd";
+};
+
+addClass();
