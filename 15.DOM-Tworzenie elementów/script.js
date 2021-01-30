@@ -14,78 +14,349 @@ for(let fruit in favoriteFruits){
     newUl.appendChild(newLi);
 }
 
-document.appendChild(newUl);
+document.body.appendChild(newUl);
 
-/*
 
-#### Zadanie 3
+//zadanie 3
 
-Na podstawie listy z zadanie 2 stwórz event który usunie z tej listy co drugi element.
+newUl.addEventListener("click", () => {
+    let allLi = document.querySelectorAll("ul li");
+    allLi.forEach((child, index) => {
+        if(index % 2 == 0){
+            child.remove();
+        }
+    })
+});
 
-#### Zadanie 4
+//zadanie 4
+const newButton = document.createElement("button");
+newButton.innerText = "Remove";
+newButton.addEventListener("click", () => {
+    newButton.remove();
+})
 
-Dodaj do strony button po kliknięciu na button ma on się usuwać ze strony.
+document.body.appendChild(newButton);
 
-#### Zadanie 5
+//zadanie 5
 
-Na podstawie losowej liczby utwórz odpowiednią ilość divów z tekstem: "to jest div numer ${numer}"
-
-#### Zadanie 6
-
-Na podstawie obiektu stwórz struktórę w html
-
-{
-    div1: 'to jest div',
-    span1: 'to jest span',
-    div2: {
-        div3: 'to jest div',
-    },
-    span2: 'to jest span',
+for(let i = 0; i < Math.floor(Math.random() * 10); i++){
+    const newDiv = document.createElement("div");
+    newDiv.innerText = 'to jest div numer ' + i;
+    document.body.appendChild(newDiv);
 }
 
-#### Zadanie 7
+//zadanie 6
 
-Stwórz dwie listy. W jednej umieść minim 6 elementów. Druga niech będzie pusta. Pod każdą z list dodaj button. Po kliknięciu na button pod listą ostatni element listy ma być przeniesiony do drugiej listy. Jeśli w danej liście nie ma żadnych elementów to button ma być zablokowany przy pomocy atrybutu disabled;
+let div1 = document.createElement("div");
+div1.textContent = "to jest div";
+let span1 = document.createElement("span");
+span1.textContent = "to jest span";
+let div2 = document.createElement("div");
+let div3 = document.createElement("div");
+div3.textContent = "to jest div";
+let span2 = document.createElement("span");
+span2.textContent = "to jest span";
 
-#### Zadanie 8
+div2.appendChild(div3);
 
-Stwórz formularz do którego będzie można wpisać jaki element user chce utworzyć, z jakim tekstem, z kolorem tekstu i ile razy ma być ten element powtórzony na stronie. Po kliknięciu na button "Utwórz" formularz powinien tworzyć taką strukturę.
+document.body.appendChild(div1);
+document.body.appendChild(span1);
+document.body.appendChild(div2);
+document.body.appendChild(span2);
 
-#### Zadanie 9
+//zadanie 7
+let arr = ["item1", "item2", "item3", "item4", "item5", "item6"];
+let ulFirst = document.createElement("ul");
+let buttonFirst = document.createElement("button");
+buttonFirst.textContent = "Swap";
 
-Stwórz formularz do którego będzie można wpisać dane tabelarczne takie jak:
+let ulSecond = document.createElement("ul");
+let buttonSecond = document.createElement("button");
+buttonSecond.textContent = "Swap";
 
-1. Imię
-2. Nazwisko
-3. Wiek
-4. Ilość dzieci
+for(let item in arr){
+    let newLi = document.createElement("li");
+    newLi.innerText = item;
+    ulFirst.appendChild(newLi);
+}
 
-Formularz powinien mieć możliwość dodawania kilku takich pozycji po kliknięciu na button "Więcej". Po kliknieciu na "Utwórz" powinna utworzyć się tabela z odpowiednimi headerami oraz wypełnionymi danymi z formularza. Na końcu każdej lini powinien być button "Usuń" który usuwa daną linijkę.
+document.body.appendChild(ulFirst);
+document.body.appendChild(buttonFirst);
+
+document.body.appendChild(ulSecond);
+document.body.appendChild(buttonSecond);
 
 
-#### Zadanie 10
+buttonFirst.addEventListener("click", () => {
+    let lastInFirst = ulFirst.lastChild;
+    let lastInSecond = ulSecond.lastChild;
+    ulSecond.insertBefore(lastInFirst, lastInSecond);
 
-Na podstawie powyższego zadania stwórz funkcję która sprawdzi wszystkie stringi wpisane i zamieni pierwsze ich litery na duże. 
+    (ulFirst.children.length == 0) ? buttonFirst.disabled = true : buttonSecond.disabled = false;
+})
 
-#### Zadanie 11
 
-Stwóz funkcję która będzie przyjmować dowolny string. Sprawdź czy występują w nim liczby. Jeśli tak to podaj w konsoli ich sumę. Dodatkowo stwórz tyle divów z tym tekstem ile wynosi iloczyn tych liczb.
+buttonSecond.addEventListener("click", () => {
+    let lastInFirst = ulFirst.lastChild;
+    let lastInSecond = ulSecond.lastChild;
+    ulFirst.insertBefore(lastInSecond, lastInFirst);
 
-#### Zadanie 12
+    (ulSecond.children.length == 0) ? buttonSecond.disabled = true : buttonFirst.disabled = false;
+})
 
-Stwórz funkcję która przyjmuje dowolnego stringa. Następnie Wrzuć tego strina do obiektu pod dowolnym polem. Dopisz metodę do obiektu która będzie sprawdzać czy w tekście występuje string 'Ala' i jeśli tak to zamieni go na 'Ola'. Jeśli tekst nie występuje to niech utworzy odpowiedniego diva i doda do niego tekst "Słowo Ala nie występuje w tekście."
 
-#### Zadanie 13
+//zadanie 8
+//przykladowy input: div, 2, to co bedzie w divie, red
+const newForm = document.createElement("form");
+const newInput = document.createElement("input");
+const newSpan = document.createElement("span")
+const newButton = document.createElement("button");
+newButton.setAttribute("type", "submit");
 
-Stwórz funkcję która przyjmie tablicę stringów. Funkcja ma zwrócić nową tablicę z ilością liter w strinach. Druga funkcja ma zsumować wszystkie liczby z tablicy i zwrócić wynik. Trzecia funkcja ma wyciągnąć średnią z liczb i zwrócić wynik.
+newForm.appendChild(newSpan);
+newForm.appendChild(newInput);
+newForm.appendChild(newButton);
+document.body.appendChild(newForm);
 
-#### Zadanie 14 
+newSpan.textContent = "Wprowadz typ elementu, ilosc elementow, tekst ktory ma zostac powtorzony oraz kolor przedzielone przecinkiem.";
+newButton.textContent = "Stworz";
 
-Stwórz obiekt z 3 polami:
-{
+newButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const input = newInput.value;
+    const values = input.split(',');
+    for (let i = 0; i < values[1]; i++) {
+        const newElement = document.createElement(values[0]);
+        newElement.textContent = values[2];
+        newElement.style.color = values[3];
+        document.body.appendChild(newElement);
+        
+    }
+})
+
+//zadanie 9
+let formInputs = ["Imie", "Nazwisko", "Wiek", "IloscDzieci"];
+let formDiv = document.createElement("div");
+
+createFormFields(formInputs);
+
+document.body.appendChild(formDiv);
+
+let submitButton = document.createElement("button");
+submitButton.id = "submit";
+submitButton.textContent = "Utwórz";
+
+let showMoreButton = document.createElement("button");
+showMoreButton.id = "showMore";
+showMoreButton.textContent = "Więcej";
+
+document.body.appendChild(showMoreButton);
+document.body.appendChild(submitButton);
+
+showMoreButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    createFormFields(formInputs);
+})
+
+
+function createFormFields(formInputs) {
+    formInputs.forEach((formInput) => {
+        let inputDiv = document.createElement("div");
+        let input = document.createElement("input");
+        input.className = formInput;
+        let textDiv = document.createElement("div");
+        textDiv.textContent = formInput;
+        let breakLine = document.createElement("br");
+
+        inputDiv.appendChild(textDiv);
+        inputDiv.appendChild(input);
+        inputDiv.appendChild(breakLine);
+
+        formDiv.appendChild(inputDiv);
+    })
+}
+
+submitButton.addEventListener("click", () => {
+    let names = document.querySelectorAll(".Imie")
+    let lastNames = document.querySelectorAll(".Nazwisko");
+    let ages = document.querySelectorAll(".Wiek");
+    let kids = document.querySelectorAll(".IloscDzieci");
+    let tableWrapper = document.createElement("div");
+
+    names.forEach((n) => {
+        let tableRow = createRow("Imie", n.value)
+        tableWrapper.appendChild(tableRow);
+    })
+
+    lastNames.forEach((n) => {
+        let tableRow = createRow("Nazwisko", n.value)
+        tableWrapper.appendChild(tableRow);
+    })
+    ages.forEach((n) => {
+        let tableRow = createRow("Wiek", n.value)
+        tableWrapper.appendChild(tableRow);
+    })
+    kids.forEach((n) => {
+        let tableRow = createRow("Ilosc Dzieci", n.value)
+        tableWrapper.appendChild(tableRow);
+    })
+
+    document.body.appendChild(tableWrapper);
+})
+
+function createRow(rowName, val){
+    let removeButton = createRemoveButton();
+    let rowWrapper = document.createElement("div");
+    const fieldDiv = document.createElement("div");
+    const fieldValue = document.createElement("div");
+    fieldDiv.textContent = rowName + ": ";
+    fieldValue.textContent = val;
+    fieldValue.classList = "fieldValue";
+    rowWrapper.appendChild(fieldDiv);
+    rowWrapper.appendChild(fieldValue);
+    rowWrapper.appendChild(removeButton);
+
+    return rowWrapper;
+}
+
+function createRemoveButton() {
+    let button = document.createElement("button");
+    button.textContent = "Usun";
+
+    button.addEventListener("click", (e) => {
+        const target = e.target;
+        target.parentNode.parentNode.removeChild(target.parentNode);
+    })
+
+    return button;
+}
+
+//zadanie 10
+
+function capitalizeFirstLetter(sentence){
+    return sentence[0].toUpperCase() + sentence.substr(1, sentence.length);
+}
+
+//zadnaie 11
+
+function checkAndCreateDivs(string){
+    let sum = 0;
+    let multiplied = 1;
+    for(let i = 0; i < string.length; i++){
+        if(!isNaN(string[i])){
+          let int = parseInt(string[i]);
+          sum += int;
+          multiplied *= int;
+        }
+    }
+    if(multiplied !== 1 || sum !== 0){
+      for(let i = 0; i < multiplied; i++){
+      let newDiv = document.createElement("div");
+      newDiv.textContent = string;
+      document.body.appendChild(newDiv);
+    }
+    }
+    
+
+    console.log(sum);
+}
+
+checkAndCreateDivs("abc52");
+
+//zadanie 12
+function create(string) {
+    return {
+        text: string
+    }
+}
+
+let tomek = create("tomek ma kota");
+tomek.checkIfContainsAla = function() {
+    if(this.text.includes("Ala")){
+        this.text = this.text.replaceAll("Ala", "Ola");
+        console.log(this.text);
+    } else {
+        let newDiv = document.createElement("div");
+        newDiv.textContent = "Słowo Ala nie występuje w tekście."
+        document.body.appendChild(newDiv);
+    }
+}
+
+tomek.checkIfContainsAla();
+
+//zadanie 13
+
+function countLetters(arr) {
+    let letterCount = 0;
+    arr.forEach(word => {
+      for(let i = 0; i < word.length; i++){
+        if(isNaN(word[i])){
+          letterCount++;
+        }
+      }
+      
+    });
+    return letterCount;
+}
+
+function sumNumbers(arr) {
+    let sum = 0;
+    arr.forEach((word) => {
+      for(let i = 0; i < word.length; i++){
+        if(!isNaN(word[i])){
+          let int = parseInt(word[i]);
+          sum += int;
+        }
+    }
+    })
+    return sum;
+}
+
+function average(arr) {
+    let sum = 0;
+    let numbersSpotted = 0;
+    arr.forEach((word) => {
+      for(let i = 0; i < word.length; i++){
+        if(!isNaN(word[i])){
+          let int = parseInt(word[i]);
+          sum += int;
+          numbersSpotted++;
+        }
+    }
+    })
+    return sum / numbersSpotted;
+}
+
+const sampleData = ['abc42', 'cde2'];
+console.log(countLetters(sampleData));
+console.log(sumNumbers(sampleData));
+console.log(average(sampleData));
+
+//zadanie 14
+
+let obj = {
     name: '',
     surname: '',
     age: ''
 }
 
-Następnie stwóz funkcję (nie metodę) która przypisuje nowe wartości do tych pól oraz tworzy nowe pola z długością stringów. Jeśli któyś ze stringów będzie dłuższy niż 5 to stwórz w html button po kliknięciu którego cały obiekt wróci do stanu początkowego.
+function changeObject(name, surname, age){
+    obj.name = name;
+    obj.surname = surname;
+    obj.age = age;
+
+    if(name.length > 5 || surname.length > 5 || age.length > 5){
+        let newButton = document.createElement("button");
+        newButton.textContent = "Przywroc domyslne";
+        newButton.addEventListener("click", () => {
+            obj.name = "";
+            obj.surname = "";
+            obj.age = "";
+        })
+        document.body.appendChild(newButton);
+    }
+}
+
+changeObject("Tomasz", "Lesniak", "21");
